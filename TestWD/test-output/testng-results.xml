@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="14693" started-at="2012-08-08T02:39:25Z" finished-at="2012-08-08T02:39:40Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="14693" started-at="2012-08-08T02:39:25Z" finished-at="2012-08-08T02:39:40Z">
+      <class name="com.test.Test_portal">
+        <test-method status="PASS" signature="PageManagement()[pri:0, instance:com.test.Test_portal@105691e]" name="PageManagement" duration-ms="14683" started-at="2012-08-08T09:39:25Z" finished-at="2012-08-08T09:39:40Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- PageManagement -->
+      </class> <!-- com.test.Test_portal -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
