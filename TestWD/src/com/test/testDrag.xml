@@ -1,0 +1,13 @@
+<suite name="Suite" parallel="false">
+<test name="testmethod" preserve-order="true">
+  <classes>
+    <class name="com.test.TestDragDrop">
+      <methods>
+        <include name="login" />
+        <include name="enterEditpage" />
+        <include name="DragDrop" />
+      </methods>
+    </class>
+   </classes>
+</test>
+</suite>

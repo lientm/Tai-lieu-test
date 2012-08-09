@@ -1,0 +1,13 @@
+<suite name="Suite" parallel="false">
+<test name="testgroup" preserve-order="true">
+  <parameter name="page" value="Page1" />
+  <groups>
+    <run>
+      <include name="group2"/>
+    </run>
+  </groups>
+  <classes>
+    <class name="com.test.Test1"/>
+  </classes>
+</test>
+</suite>

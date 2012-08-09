@@ -1,45 +1,146 @@
 package com.test;
 
+
+import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
+import static org.testng.AssertJUnit.assertTrue;
+import org.testng.annotations.Parameters;
+
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.Test;
+import org.openqa.selenium.interactions.Actions;
+
 
 public class NewTest {
+	// public Variable
+	WebDriver driver;
 
-  @Test
-  public void testabc(){ 
-      WebDriver driver = new FirefoxDriver();
+	@Test
+	public void Login() {
+		driver = new FirefoxDriver();
+		driver.get("http://localhost:8080/portal/classic");
+		WebElement register = driver.findElement(By.linkText("Sign in"));
+		register.click();
+		WebElement user = null;
+		try {
+			while (user == null) {
+				Thread.sleep(500);
+				user = driver.findElement(By.name("username"));
+			}
 
-      driver.get("http://www.google.com");
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		user.sendKeys("root");
+		WebElement pass = driver.findElement(By.name("password"));
+		pass.sendKeys("gtn");
+		driver.findElement(By.name("signIn")).click();
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 
-      WebElement element = driver.findElement(By.name("q"));
+	// Enter Page management form
+	@Test(groups = { "Test2" })
+	public void EnterPageForm() {
+		Actions action = new Actions(driver);
+		WebElement group = driver.findElement(By.linkText("Group"));
+		action.moveToElement(group).build().perform();
+		WebElement adminis = driver.findElement(By.linkText("Administration"));
+		action.moveToElement(adminis).build().perform();
+		WebElement page = null;
+		try {
+			while (page == null) {
+				Thread.sleep(1000);
+				page = driver.findElement(By.linkText("Page Management"));
+			}
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		page.click();
+	}
 
-      // Enter something to search for
-      element.sendKeys("Cheese!");
+	// check value in textbox
+	@Test
+	public void checktextbox() {
+		WebElement title = driver.findElement(By.id("pageTitle"));
+		AssertJUnit.assertTrue(title.getText().equalsIgnoreCase(""));
+		WebElement pagename = driver.findElement(By.id("siteName"));
+		AssertJUnit.assertTrue(pagename.getText().equalsIgnoreCase(""));
+	}
 
-      // Now submit the form. WebDriver will find the form for us from the element
-      element.submit();
+	// add new page
+	@Test
+	public void createPage() {
+		driver.findElement(By.linkText("Add New Page")).click();
+		WebElement name = null;
+		try {
+			while (name == null) {
+				Thread.sleep(1000);
+				name = driver.findElement(By.id("name"));
+			}
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		name.sendKeys("Page1");
+		driver.findElement(By.id("title")).sendKeys("Page1");
+		driver.findElement(By.linkText("Save")).click();
+	}
 
-      // Check the title of the page
-      System.out.println("Page title is: " + driver.getTitle());
-      
-      // Google's search is rendered dynamically with JavaScript.
-      // Wait for the page to load, timeout after 10 seconds
-      (new WebDriverWait(driver, 10)).until(new ExpectedCondition<Boolean>() {
-          public Boolean apply(WebDriver d) {
-              return d.getTitle().toLowerCase().startsWith("cheese!");
-          }
-      });
+	// search page
+    @Parameters ({ "page" })
+	@Test
+	public void searchPage(String page) {
+		// find according to title
+		WebElement title1 = null;
+		try {
+			while (title1 == null) {
+				Thread.sleep(1000);
+				title1 = driver.findElement(By.id("pageTitle"));
+			}
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		title1.sendKeys(page);
+		driver.findElement(By.cssSelector(".SearchIcon")).click();
+	}
+	//delete page
+	@Test
+	public void deletePage() {
+		WebElement delete = null;
+		try {
+			while (delete == null) {
+				Thread.sleep(1000);
+				delete = driver.findElement(By.cssSelector(".DeleteIcon"));
+			}
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		delete.click();
+		Alert alert = driver.switchTo().alert();
+		alert.getText();
+		alert.accept();
 
-      // Should see: "cheese! - Google Search"
-      System.out.println("Page title is: " + driver.getTitle());
-      
-      //Close the browser
-      driver.quit();
-	  
-  }
+	}
+	//logout
+	@Test
+	public void Logout() {
+		// Logout
+		Actions action_logout = new Actions(driver);
+		WebElement UI = driver.findElement(By
+				.xpath(".//*[@id='PortalNavigationTopContainer']/li"));
+		action_logout.moveToElement(UI).build().perform();
+		driver.findElement(By.linkText("Sign out")).click();
+	}
+
 }

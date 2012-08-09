@@ -3,11 +3,12 @@
 <suite name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.test.Test_portal">
+      <class name="com.test.TestDragDrop">
         <methods>
-          <include name="PageManagement"/>
+          <include name="DragDrop"/>
+          <include name="enterEditpage"/>
         </methods>
-      </class> <!-- com.test.Test_portal -->
+      </class> <!-- com.test.TestDragDrop -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

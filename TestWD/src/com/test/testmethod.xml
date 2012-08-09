@@ -1,0 +1,18 @@
+<suite name="Suite" parallel="false">
+<test name="testmethod" preserve-order="true">
+  <parameter name="page" value="Page1" />
+  <classes>
+    <class name="com.test.NewTest">
+      <methods>
+        <include name="Login" />
+        <include name="EnterPageForm" />
+        <include name="checktextbox" />
+        <include name="createPage" />
+        <include name="searchPage" />
+        <include name="deletePage" />
+        <include name="Logout" />
+      </methods>
+    </class>
+   </classes>
+</test>
+</suite>
