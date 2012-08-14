@@ -1,9 +1,11 @@
 <suite name="Suite" parallel="false">
-  <test name="Test">
-    <classes>
-      <class name="com.test.Test_portal"/>
-      <class name="com.test.Test1"/>
-    </classes>
-	<group name = 
-  </test> <!-- Test -->
-</suite> <!-- Suite -->
+<test name="Test" preserve-order="true">
+  <classes>
+    <class name="com.test.AddPage">
+      <methods>
+        <include name="Test_CreateNewSampleNode" />
+      </methods> 
+    </class>
+   </classes>
+</test>
+</suite>

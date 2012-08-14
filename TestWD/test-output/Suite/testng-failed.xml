@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Failed suite [Suite]">
-  <test name="testmethod(failed)">
+  <test name="Test(failed)">
     <classes>
-      <class name="com.test.TestDragDrop">
+      <class name="com.test.AddPage">
         <methods>
-          <include name="DragDrop"/>
+          <include name="Test_CreateNewSampleNode"/>
         </methods>
-      </class> <!-- com.test.TestDragDrop -->
+      </class> <!-- com.test.AddPage -->
     </classes>
-  </test> <!-- testmethod(failed) -->
+  </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

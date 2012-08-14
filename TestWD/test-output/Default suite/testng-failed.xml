@@ -3,12 +3,17 @@
 <suite name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.test.TestDragDrop">
+      <class name="com.test.NewTest">
         <methods>
-          <include name="DragDrop"/>
-          <include name="enterEditpage"/>
+          <include name="checktextbox"/>
+          <include name="deletePage"/>
+          <include name="createPage"/>
+          <include name="EnterPageForm"/>
+          <include name="searchPage"/>
+          <include name="Login"/>
+          <include name="Logout"/>
         </methods>
-      </class> <!-- com.test.TestDragDrop -->
+      </class> <!-- com.test.NewTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

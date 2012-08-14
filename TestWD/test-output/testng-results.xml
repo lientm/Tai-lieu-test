@@ -1,25 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="3" passed="3">
+<testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite" duration-ms="19120" started-at="2012-08-09T02:45:14Z" finished-at="2012-08-09T02:45:33Z">
+  <suite name="Suite" duration-ms="51661" started-at="2012-08-14T10:32:52Z" finished-at="2012-08-14T10:33:44Z">
     <groups>
     </groups>
-    <test name="testmethod" duration-ms="19120" started-at="2012-08-09T02:45:14Z" finished-at="2012-08-09T02:45:33Z">
-      <class name="com.test.TestDragDrop">
-        <test-method status="PASS" signature="login()[pri:0, instance:com.test.TestDragDrop@3e110003]" name="login" duration-ms="11256" started-at="2012-08-09T09:45:14Z" finished-at="2012-08-09T09:45:25Z">
+    <test name="Test" duration-ms="51661" started-at="2012-08-14T10:32:52Z" finished-at="2012-08-14T10:33:44Z">
+      <class name="com.test.AddPage">
+        <test-method status="PASS" signature="Test_CreateNewSampleNode()[pri:0, instance:com.test.AddPage@69945ce]" name="Test_CreateNewSampleNode" duration-ms="51647" started-at="2012-08-14T17:32:52Z" finished-at="2012-08-14T17:33:44Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- login -->
-        <test-method status="PASS" signature="enterEditpage()[pri:0, instance:com.test.TestDragDrop@3e110003]" name="enterEditpage" duration-ms="1217" started-at="2012-08-09T09:45:25Z" finished-at="2012-08-09T09:45:26Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- enterEditpage -->
-        <test-method status="PASS" signature="DragDrop()[pri:0, instance:com.test.TestDragDrop@3e110003]" name="DragDrop" duration-ms="6632" started-at="2012-08-09T09:45:26Z" finished-at="2012-08-09T09:45:33Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- DragDrop -->
-      </class> <!-- com.test.TestDragDrop -->
-    </test> <!-- testmethod -->
+        </test-method> <!-- Test_CreateNewSampleNode -->
+      </class> <!-- com.test.AddPage -->
+    </test> <!-- Test -->
   </suite> <!-- Suite -->
 </testng-results>
