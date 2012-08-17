@@ -162,7 +162,7 @@ public class EcmsTestSuite extends PlatformTestSuite {
 	    InputDataToFrame("//td[@id='cke_contents_content']/iframe",cont);
 	    SwitchtoParentWindow();
 	    //save
-		SelectElementById("Save & Close").click();
+	    SelectElementByLinktext("Save & Close").click();
 	}
 	
 	//add new annoucement
@@ -171,7 +171,7 @@ public class EcmsTestSuite extends PlatformTestSuite {
 		SelectElementById("name").sendKeys(name);
 		InputDataToFrame("//td[@id='cke_contents_exo:summary']/iframe",sum);
 	    SwitchtoParentWindow();
-		SelectElementById("Save & Close").click();
+	    SelectElementByLinktext("Save & Close").click();
 	}
 	
 	//add new Free layout webcontent
@@ -312,6 +312,8 @@ public class EcmsTestSuite extends PlatformTestSuite {
 		Actions action = new Actions(webDriver);
 		action.contextClick(SelectElementByXpath("//a[@title='"+node+"']")).perform();
 		webDriver.findElement(By.partialLinkText("Delete")).click();
+		pause(500);
+		getTextFromAlert().contains("Are you sure to delete the node");
 		SelectElementByLinktext("OK").click();
 	}
 
@@ -321,15 +323,27 @@ public class EcmsTestSuite extends PlatformTestSuite {
 		Actions action = new Actions(webDriver);
 		action.contextClick(SelectElementByXpath("//a[@title='"+node2+"']")).perform();
 		webDriver.findElement(By.partialLinkText("Delete")).click();
+		getTextFromAlert().contains("Are you sure to delete the node");
 		SelectElementByLinktext("OK").click();
 	}
 	
 	//simple search
-	public void SimpleSearch(String keyword){
+	public boolean SimpleSearch(String keyword){
+		boolean delete = true;
 		SelectElementById("simpleSearch").sendKeys(keyword);
 		SelectElementById("SimpleSearch").click();
-		isElementPresent("//div[contains(text(),'"+keyword+"')]");
+		if (isElementPresent("//div[contains(text(),'"+keyword+"')]"))
+		{	delete = true;
+			return delete;}
+		else {
+			delete = false;
+			return delete;}
 	}
+	
+	//simple search not return result
+    public boolean NotSimpleSearch(String xpath) {
+        return !SimpleSearch(xpath);
+    }
 	
 	//create new page without layout
 	public void CreateNewPageEmptyLayout(String namepage){
@@ -341,5 +355,11 @@ public class EcmsTestSuite extends PlatformTestSuite {
 	}
 	
 	//create new page has layout
+	public void CreateNewPage(String namepage){
+		EnterNewPageForm();
+		SelectElementById("pageName").sendKeys(namepage);
+		SelectElementByLinktext("Next").click();
+		SelectElementByLinktext("Next").click();
+	}
 	
 }
